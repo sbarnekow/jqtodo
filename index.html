@@ -9,17 +9,17 @@
     <input type="submit" id="submit" name="addtodo" label="submit">
   </div>
   <div class="future">
-    <button id="remove">Remove</button>
-    <button id="complete">Complete</button>
     <h1> Future </h1>
     <ul id="futurelist">
     </ul>
+    <button id="remove">Remove</button>
+    <button id="complete">Complete</button>
   </div>
   <div class="complete">
-    <button id="futureback">Back to Future</button>
     <h1> Completed </h1>
     <ul id="completedlist">
     </ul> 
+    <button id="futureback">Back to Future</button>
   </div>
 
  <!--  for every input, append a new list item to a ul -->
@@ -36,33 +36,16 @@
     });
 
     $('#remove').on('click', function(){
-        var checked = $('#check').is(':checked');
-          if (checked === true){
-            $('li').find(':checked').parent().remove();
-          } else if (checked === false){
-            return;
-          }
+          $('li').find(':checked').parent().remove();
       });
 
-     $('#complete').on('click', function(){
-      var completed = $('#completedlist');
-      var checked = $('#check').is(':checked');
-        if (checked === true){
-          $('li').find(':checked').parent().remove().appendTo($('#completedlist'))
-        } else {
-          console.log(checked)
-        }
-    });
+    $('#complete').on('click', function(){
+          $('li').find(':checked').removeAttr('checked').parent().remove().appendTo($('#completedlist'))
+      });
 
      $('#futureback').on('click', function(){
-      var checked = $('#check').find(':checked');
-        if (checked === true){
-          $('.complete').find(':checked').parent().remove().appendTo($('#futurelist'))
-        } else {
-          console.log(checked)
-        }
+          $('.complete li').find(':checked').removeAttr('checked').parent().remove().appendTo($('#futurelist'))
      });
-
   });
 
   

@@ -1,9 +1,19 @@
+div {
+  margin: 20px 20px 20px 20px;
+  font-family: Helvetica, serif;
+}
+
 .add {
   margin: 50px 50px;
 }
 
 ul, li {
   list-style-type: none;
+  padding: 5px 5px 5px 5px;
+}
+
+ul {
+  border: 2px solid black;
 }
 
 #check {
@@ -14,4 +24,9 @@ ul, li {
 #completedlist {
   text-decoration: line-through;
   color: red;
+}
+
+button {
+  display: inline;
+  float: right;
 }
