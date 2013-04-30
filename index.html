@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+  <div class="add">
+    <input type="text" id="item" label="enter">
+    <input type="submit" id="submit" name="addtodo" label="submit">
+  </div>
+  <div class="future">
+    <button id="remove">Remove</button>
+    <button id="complete">Complete</button>
+    <h1> Future </h1>
+    <ul id="futurelist">
+    </ul>
+  </div>
+  <div class="complete">
+    <h1> Completed </h1>
+    <ul id="completedlist">
+    </ul> 
+  </div>
+
+ <!--  for every input, append a new list item to a ul -->
+
+
+  <script>
+  $(document).ready(function(){
+    // this submits each item to the future list
+    $('#submit').on('click', function(){
+      var input = $('#item').val();
+      var future = $('#futurelist');
+      var li = $('<li>' + '  <input type="checkbox" id="check" name="done">' + input + '</li>');
+      li.appendTo(future)
+    });
+
+  $('#remove').on('click', function(){
+      var checked = $('#check').is(':checked');
+        if (checked === true){
+          $('li').remove();
+        } else if (checked === false){
+          return;
+        }
+    });
+
+     $('#complete').on('click', function(){
+      var completed = $('#completedlist');
+      var checked = $('#check').is(':checked');
+        if (checked === true){
+          $('li').remove().appendTo($('#completedlist'))
+        } else {
+          console.log(checked)
+        }
+    });
+
+
+  });
+
+  
+  </script> 
+
+</body>
