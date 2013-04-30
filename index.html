@@ -5,50 +5,45 @@
 </head>
 <body>
   <div class="add">
+    <h2> Add something to your list: </h2>
     <input type="text" id="item" label="enter">
     <input type="submit" id="submit" name="addtodo" label="submit">
   </div>
   <div class="future">
-    <h1> Future </h1>
+    <h1> Do! </h1>
     <ul id="futurelist">
     </ul>
-    <button id="remove">Remove</button>
-    <button id="complete">Complete</button>
+    <button id="remove">Destroy.</button>
+    <button id="complete">Mark as Done.</button>
   </div>
   <div class="complete">
-    <h1> Completed </h1>
+    <h1>Done.</h1>
     <ul id="completedlist">
     </ul> 
-    <button id="futureback">Back to Future</button>
+    <button id="futureback">Undo.</button>
   </div>
-
- <!--  for every input, append a new list item to a ul -->
-
 
   <script>
   $(document).ready(function(){
-    // this submits each item to the future list
-    $('#submit').on('click', function(){
-      var input = $('#item').val();
-      var future = $('#futurelist');
-      var li = $('<li>' + '  <input type="checkbox" id="check" name="done">' + input + '</li>');
-      li.appendTo(future)
-    });
-
-    $('#remove').on('click', function(){
-          $('li').find(':checked').parent().remove();
+      $('#submit').on('click', function(){
+        var input = $('#item').val();
+        var future = $('#futurelist');
+        var li = $('<li>' + '  <input type="checkbox" id="check" name="done">' + input + '</li>');
+        li.appendTo(future)
       });
 
-    $('#complete').on('click', function(){
-          $('li').find(':checked').removeAttr('checked').parent().remove().appendTo($('#completedlist'))
-      });
+      $('#remove').on('click', function(){
+            $('li').find(':checked').parent().remove();
+        });
 
-     $('#futureback').on('click', function(){
-          $('.complete li').find(':checked').removeAttr('checked').parent().remove().appendTo($('#futurelist'))
-     });
+      $('#complete').on('click', function(){
+            $('li').find(':checked').removeAttr('checked').parent().remove().appendTo($('#completedlist'))
+        });
+
+       $('#futureback').on('click', function(){
+            $('.complete li').find(':checked').removeAttr('checked').parent().remove().appendTo($('#futurelist'))
+       });
   });
-
-  
   </script> 
 
 </body>

@@ -3,10 +3,6 @@ div {
   font-family: Helvetica, serif;
 }
 
-.add {
-  margin: 50px 50px;
-}
-
 ul, li {
   list-style-type: none;
   padding: 5px 5px 5px 5px;
@@ -14,6 +10,7 @@ ul, li {
 
 ul {
   border: 2px solid black;
+  width: 80%;
 }
 
 #check {
