@@ -2,11 +2,16 @@
   margin: 50px 50px;
 }
 
-ul {
+ul, li {
   list-style-type: none;
 }
 
 #check {
   display: inline;
   margin-right: 20px;
+}
+
+#completedlist {
+  text-decoration: line-through;
+  color: red;
 }

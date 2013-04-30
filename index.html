@@ -16,6 +16,7 @@
     </ul>
   </div>
   <div class="complete">
+    <button id="futureback">Back to Future</button>
     <h1> Completed </h1>
     <ul id="completedlist">
     </ul> 
@@ -34,25 +35,33 @@
       li.appendTo(future)
     });
 
-  $('#remove').on('click', function(){
-      var checked = $('#check').is(':checked');
-        if (checked === true){
-          $('li').remove();
-        } else if (checked === false){
-          return;
-        }
-    });
+    $('#remove').on('click', function(){
+        var checked = $('#check').is(':checked');
+          if (checked === true){
+            $('li').find(':checked').parent().remove();
+          } else if (checked === false){
+            return;
+          }
+      });
 
      $('#complete').on('click', function(){
       var completed = $('#completedlist');
       var checked = $('#check').is(':checked');
         if (checked === true){
-          $('li').remove().appendTo($('#completedlist'))
+          $('li').find(':checked').parent().remove().appendTo($('#completedlist'))
         } else {
           console.log(checked)
         }
     });
 
+     $('#futureback').on('click', function(){
+      var checked = $('#check').find(':checked');
+        if (checked === true){
+          $('.complete').find(':checked').parent().remove().appendTo($('#futurelist'))
+        } else {
+          console.log(checked)
+        }
+     });
 
   });
 
